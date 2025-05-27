@@ -1,0 +1,63 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/go-postgres
+{
+	"name": "Go & PostgreSQL",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/devcontainers/features/aws-cli:1": {
+			"version": "latest"
+		},
+		"ghcr.io/dapr/cli/dapr-cli:0": {
+			"version": "latest"
+		},
+		"ghcr.io/robbert229/devcontainer-features/postgresql-client:1": {
+			"version": "13"
+		},
+		"ghcr.io/localstack/devcontainer-feature/localstack-cli:0": {
+			"awslocal": true,
+			"samlocal": true,
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/protoc:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/protoc-asdf:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
+			"plugins": "ssh-agent npm",
+			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
+			"username": "root"
+		}
+	},
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"amazonwebservices.aws-toolkit-vscode",
+				"cweijan.vscode-redis-client",
+				"dbaeumer.vscode-eslint",
+				"golang.go",
+				"LocalStack.localstack",
+				"ms-vscode-remote.remote-containers",
+				"ms-vscode-remote.remote-wsl",
+				"ms-azuretools.vscode-dapr",
+				"Postman.postman-for-vscode"
+			]
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [5432, 8080],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "sh .devcontainer/script.sh"
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
