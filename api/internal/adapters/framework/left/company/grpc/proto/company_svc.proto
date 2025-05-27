@@ -1,0 +1,34 @@
+syntax = "proto3";
+package pb_company;
+
+option go_package = "./pb";
+
+service CompanyService {
+  rpc AddNewCompany(RequestVariables) returns (ResponseAnswers) {}
+}
+
+message ResponseAnswers {
+  int32 id = 1;
+  NewCompany company = 2;
+}
+
+message RequestVariables {
+  string name = 1;
+  string contact = 2;
+  string website = 3;
+  string email = 4;
+  string country = 5;
+  string state = 6;
+  string zip = 7;
+}
+
+message NewCompany {
+  string uuid = 1;
+  string name = 2;
+  string contact = 3;
+  string website = 4;
+  string email = 5;
+  string country = 6;
+  string state = 7;
+  string zip = 8;    
+}
