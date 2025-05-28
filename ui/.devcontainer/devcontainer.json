@@ -17,10 +17,16 @@
 		"ghcr.io/r3dpoint/devcontainer-features/tailwindcss-standalone-cli:1": {
 			"version": "latest"
 		},
-		"ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
-			"plugins": "ssh-agent npm",
-			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
-			"username": "root"
+		"ghcr.io/schlich/devcontainer-features/cypress:1": {
+			"version": "latest",
+			"installCypressDependencies": true,
+			"cypressVersion": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/jest:2": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/mocha:2": {
+			"version": "latest"
 		}
 	},
 
@@ -28,7 +34,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
+	"postCreateCommand": "yarn install",
 
 	// Configure tool-specific properties.
 	"customizations": {
