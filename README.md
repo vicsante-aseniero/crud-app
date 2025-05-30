@@ -1,2 +1,2 @@
 # erm-app
-Healthcare EMR App. Front-end NextJS and Back-end Go
+Healthcare EMR App. Front-end NextJS
