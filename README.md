@@ -1,2 +1,2 @@
 # CRUD APP
-CRUD EMR App. Front-end NextJS
+CRUD App. Front-end NextJS
