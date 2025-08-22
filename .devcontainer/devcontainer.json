@@ -1,0 +1,106 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/go-postgres
+{
+	"name": "Go & PostgreSQL",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/devcontainers/features/aws-cli:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"nodeGypDependencies": true,
+			"installYarnUsingApt": true,
+			"version": "lts",
+			"pnpmVersion": "latest",
+			"nvmVersion": "latest"
+		},
+		"ghcr.io/dapr/cli/dapr-cli:0": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/protoc:1": {
+			"version": "latest"
+		},
+		"ghcr.io/robbert229/devcontainer-features/postgresql-client:1": {
+			"version": "13"
+		},
+		"ghcr.io/localstack/devcontainer-feature/localstack-cli:0": {
+			"awslocal": true,
+			"samlocal": true,
+			"installUsingPython": true,
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/node-asdf:0": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-community/npm-features/typescript:1": {
+			"version": "latest"
+		},
+		"ghcr.io/r3dpoint/devcontainer-features/tailwindcss-standalone-cli:1": {
+			"version": "latest"
+		},
+		"ghcr.io/schlich/devcontainer-features/cypress:1": {},
+		"ghcr.io/schlich/devcontainer-features/playwright:0": {},
+		"ghcr.io/devcontainers-extra/features/jest:2": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/mocha:2": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
+			"plugins": "ssh-agent npm",
+			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
+			"username": "root"
+		}
+	},
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"amazonwebservices.amazon-q-vscode",
+				"amazonwebservices.aws-toolkit-vscode",
+				"christian-kohler.npm-intellisense",
+				"Codeium.codeium",
+				"Compulim.vscode-mocha",
+				"cweijan.vscode-redis-client",
+				"dbaeumer.vscode-eslint",
+				"docsmsft.docs-yaml",
+				"EditorConfig.EditorConfig",
+				"esbenp.prettier-vscode",
+				"firefox-devtools.vscode-firefox-debug",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"golang.go",
+				"google.geminicodeassist",
+				"humao.rest-client",
+				"kilocode.kilo-code",
+				"localstack.localstack",
+				"ms-playwright.playwright",
+				"ms-azuretools.vscode-dapr",
+				"ms-vscode.csharp",
+				"ms-vscode-remote.remote-containers",
+				"ms-vscode-remote.vscode-remote-extensionpack",
+				"ms-vscode-remote.remote-wsl",
+				"ms-vscode.vscode-typescript-next",
+				"Orta.vscode-jest",
+				"PKief.material-icon-theme",
+				"Postman.postman-for-vscode",
+				"redhat.vscode-yaml",
+				"xabikos.JavaScriptSnippets"
+			]
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [5432, 8080, 9000],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "bash .devcontainer/postCreateCommand.sh"
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}

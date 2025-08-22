@@ -1,0 +1,35 @@
+{
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
+  "recommendations": [
+    "amazonwebservices.amazon-q-vscode",
+    "amazonwebservices.aws-toolkit-vscode",
+    "christian-kohler.npm-intellisense",
+    "Codeium.codeium",
+    "Compulim.vscode-mocha",
+    "cweijan.vscode-redis-client",
+    "dbaeumer.vscode-eslint",
+    "docsmsft.docs-yaml",
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "firefox-devtools.vscode-firefox-debug",
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "golang.go",
+    "google.geminicodeassist",
+    "humao.rest-client",
+    "kilocode.kilo-code",
+    "localstack.localstack",
+    "ms-playwright.playwright",
+    "ms-azuretools.vscode-dapr",
+    "ms-vscode.csharp",
+    "ms-vscode-remote.remote-containers",
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "ms-vscode-remote.remote-wsl",
+    "ms-vscode.vscode-typescript-next",
+    "Orta.vscode-jest",
+    "PKief.material-icon-theme",
+    "Postman.postman-for-vscode",
+    "redhat.vscode-yaml",
+    "xabikos.JavaScriptSnippets"
+  ]
+}
