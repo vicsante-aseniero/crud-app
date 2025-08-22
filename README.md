@@ -1,2 +1,2 @@
-# simple-crud-app-nextjs-golang
-Simple CRUD App. Front-end NextJS and Back-end Go
+# Simple CRUD App NextJS UI Golang API
+Simple CRUD App. Front-end NextJS UI and Back-end Go API
