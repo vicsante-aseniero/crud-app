@@ -1,14 +1,8 @@
 version: '3.8'
 
-networks:
-  frontend_network:
-    driver: bridge # Or overlay, etc.
-  backend_network:
-    driver: bridge
-
 services:
   postgres:
-    image: postgres:latest
+    image: postgres:17.6
     container_name: postgres
     env_file:
       # Ensure that the variables in .env match the same variables in devcontainer.json
@@ -54,11 +48,11 @@ services:
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   keycloak:
-    image: quay.io/keycloak/keycloak:latest
+    image: quay.io/keycloak/keycloak:26.2
     container_name: keycloak
     environment:
       # Database connection settings
-      KC_DB: keycloak
+      KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
       KC_DB_USERNAME: keycloak
       KC_DB_PASSWORD: jajnav5@
@@ -70,13 +64,12 @@ services:
       KC_HOSTNAME_PORT: 9000
       KC_HTTP_ENABLED: "true" # Enable HTTP for local development, use HTTPS in production
       # Production mode (recommended)
-      KC_FEATURES: web_authn,token_exchange,client_policies,admin_fine_grained_authz,declarative_user_profile,scripts,docker
+      KC_FEATURES: web-authn,token-exchange,client-policies,admin-fine-grained-authz,declarative-ui,scripts,docker
       KC_HEALTH_ENABLED: "true" # Enable health endpoints
       KC_METRICS_ENABLED: "true" # Enable metrics endpoints
     ports:
-      - "9000:9000"
+      - "9000:8080"
     networks:
-      - frontend_network
       - backend_network
     restart: unless-stopped
     volumes:
@@ -94,6 +87,12 @@ services:
 
     # Add "forwardPorts": ["9000"] to **devcontainer.json** to forward Keycloak locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+networks:
+  frontend_network:
+    driver: bridge # Or overlay, etc.
+  backend_network:
+    driver: bridge
 
 volumes:
   postgres_data:
