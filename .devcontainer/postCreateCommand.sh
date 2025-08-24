@@ -2,6 +2,9 @@
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install -y xdg-utils
 sudo apt-get update && sudo apt-get install -y net-tools
+sudo apt-get install -y python3-pip
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get autoremove -y
 
 echo "Installing needed package(s)....."
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
