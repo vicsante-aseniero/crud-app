@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   postgres:
-    image: postgres:17.6
+    image: postgres:latest
     container_name: postgres
     env_file:
       # Ensure that the variables in .env match the same variables in devcontainer.json
@@ -43,12 +43,13 @@ services:
     networks: 
       - frontend_network
       - backend_network
+    restart: unless-stopped
 
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   keycloak:
-    image: quay.io/keycloak/keycloak:26.2
+    image: quay.io/keycloak/keycloak:latest
     container_name: keycloak
     environment:
       # Database connection settings
@@ -88,6 +89,38 @@ services:
     # Add "forwardPorts": ["9000"] to **devcontainer.json** to forward Keycloak locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    networks:
+      - backend_network
+    volumes:
+      - redis_data:/data
+
+    # Add "forwardPorts": ["6379"] to **devcontainer.json** to forward Redis locally.
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    restart: unless-stopped
+    ports:
+      - "5672:5672"   # RabbitMQ message broker
+      - "15672:15672" # RabbitMQ management UI
+    networks:
+      - backend_network
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: jajnav5@
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+    # Add "forwardPorts": ["5672", "15672"] to **devcontainer.json** to forward RabbitMQ locally.
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
 networks:
   frontend_network:
     driver: bridge # Or overlay, etc.
@@ -97,3 +130,5 @@ networks:
 volumes:
   postgres_data:
   keycloak_data:
+  redis_data:
+  rabbitmq_data:
