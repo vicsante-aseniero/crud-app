@@ -42,7 +42,7 @@
             "name": "Next.js: debug server-side",
             "type": "node-terminal",
             "request": "launch",
-            "command": "npm run dev -- --host=0.0.0.0",
+            "command": "npm run dev",
             "cwd": "${workspaceFolder}/ui",
         },
         {
@@ -51,15 +51,18 @@
             "request": "launch",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}/ui",
+            "port": 9222,
+            "trace": true
         },
         {
             "name": "Next.js: debug client-side (Firefox)",
             "type": "firefox",
             "request": "launch",
             "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/ui",
             "reAttach": true,
             "pathMappings": [
-            {
+        {
                 "url": "webpack://_N_E",
                 "path": "${workspaceFolder}/ui"
             }
