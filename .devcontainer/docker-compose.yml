@@ -37,9 +37,3 @@ networks:
       config:
         - subnet: 237.84.2.178/16
           gateway: 237.84.2.178
-
-volumes:
-  postgres_data:
-  keycloak_data:
-  redis_data:
-  rabbitmq_data:
