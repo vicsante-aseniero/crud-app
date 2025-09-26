@@ -3,7 +3,7 @@
 {
 	"name": "Go & PostgreSQL",
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "app",
+	"service": "go-app",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
@@ -31,6 +31,10 @@
 			"awslocal": true,
 			"samlocal": true,
 			"installUsingPython": true,
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {
+			"installDirectlyFromGitHubRelease": true,
 			"version": "latest"
 		},
 		"ghcr.io/devcontainers-extra/features/node-asdf:0": {
@@ -80,7 +84,6 @@
 				"kilocode.kilo-code",
 				"localstack.localstack",
 				"ms-playwright.playwright",
-				"ms-azuretools.vscode-dapr",
 				"ms-vscode.csharp",
 				"ms-vscode-remote.remote-containers",
 				"ms-vscode-remote.vscode-remote-extensionpack",
