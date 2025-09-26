@@ -20,7 +20,6 @@
     "kilocode.kilo-code",
     "localstack.localstack",
     "ms-playwright.playwright",
-    "ms-azuretools.vscode-dapr",
     "ms-vscode.csharp",
     "ms-vscode-remote.remote-containers",
     "ms-vscode-remote.vscode-remote-extensionpack",
