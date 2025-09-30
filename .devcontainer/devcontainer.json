@@ -65,6 +65,7 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
+				"Anthropic.claude-code",
 				"amazonwebservices.amazon-q-vscode",
 				"amazonwebservices.aws-toolkit-vscode",
 				"christian-kohler.npm-intellisense",
